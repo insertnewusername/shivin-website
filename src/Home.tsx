@@ -6,7 +6,7 @@ function Home() {
   return (
     <>
         <header className='hero-container'>
-            <p>Applications Close ##:##:##</p>
+            <p>Applications Close Soon!</p>
 
             <h1 className='hero-heading'>Now this is <span className='hero-marker-text'>Rocket Science</span></h1>
             <p className='hero-subheading'>A crafty rocketry competition for <br/> daring Australian high school students</p>

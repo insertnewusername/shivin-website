@@ -25,7 +25,7 @@ body {
 
 .hero-button:hover {
     color: black;
-    background-color: cyan;
+    background-color: orangered;
 }
 
 .hero-container {
@@ -34,16 +34,30 @@ body {
     place-items: center;
     gap: 12px;
 
-    background-image:
-        linear-gradient(to right, rgb(30, 30, 30) 1px, transparent 1px),
-        linear-gradient(to bottom, rgb(30, 30, 30) 1px, transparent 1px),
-        linear-gradient(to bottom, rgb(10, 10, 10) 66%, rgb(20, 20, 20) 100%);
-    background-repeat: repeat, repeat, no-repeat;
-    background-size: 40px 40px, 40px 40px, auto;
-
-    padding: 340px 0;
+    padding: 300px 0;
 
     text-align: center;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    background-image:
+        linear-gradient(to right, rgb(40, 20, 15) 1px, transparent 1px),
+        linear-gradient(to bottom, rgb(40, 20, 15) 1px, transparent 1px),
+        linear-gradient(to bottom, rgb(0, 0, 0) 0%, rgb(20, 10, 7) 100%);
+    background-repeat: repeat, repeat, no-repeat;
+    background-size: 40px 40px, 40px 40px, cover;
+
+    mask-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.5) 50%, black 100%);
+
+    z-index: -1;
 }
 
 .hero-heading {
@@ -61,7 +75,7 @@ body {
 .hero-marker-text {
     font-size: 96px;
     font-family: 'Covered By Your Grace', serif;
-    color: cyan;
+    color: orangered;
     letter-spacing: -2px;
 }
 

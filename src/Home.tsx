@@ -5,12 +5,14 @@ import './App.css'
 function Home() {
   return (
     <>
-        <header>
-            <p>Applications close in # days!</p>
-            <h1>Launch your creative skills.</h1>
-            <p>A creativity focused rocketry competition for high school students in NSW, Australia</p>
+        <header className='hero-container'>
+            <p>Applications Close ##:##:##</p>
+
+            <h1 className='hero-heading'>Now this is <span className='hero-marker-text'>Rocket Science</span></h1>
+            <p className='hero-subheading'>A crafty rocketry competition for <br/> daring Australian high school students</p>
+
             <Link href="/register">
-                <button>Register Now</button>
+                <button className='hero-button'>Register Now</button>
             </Link>
         </header>
     </>

@@ -23,9 +23,6 @@ function App() {
           <p>Error 404</p>
         </Route>
       </Switch>
-      
-      
-      
     </>
   )
 }

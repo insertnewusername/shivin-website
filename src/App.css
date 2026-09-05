@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&display=swap');
+
+body {
+    color: white;
+    background-color: black;
+    font-family: 'Google Sans', sans-serif;
+    margin: 0;
+}
+
+.hero-button {
+    color: black;
+    background-color: white;
+    border: none;
+
+    padding: 12px 24px;
+    text-transform: uppercase;
+
+    transition: color 0.2s ease;
+    transition: background-color 0.2s ease;
+
+    font-family: 'Google Sans', sans-serif;
+}
+
+.hero-button:hover {
+    color: black;
+    background-color: cyan;
+}
+
+.hero-container {
+    display: flex;
+    flex-flow: column nowrap;
+    place-items: center;
+    gap: 12px;
+
+    background-image:
+        linear-gradient(to right, rgb(30, 30, 30) 1px, transparent 1px),
+        linear-gradient(to bottom, rgb(30, 30, 30) 1px, transparent 1px),
+        linear-gradient(to bottom, rgb(10, 10, 10) 66%, rgb(20, 20, 20) 100%);
+    background-repeat: repeat, repeat, no-repeat;
+    background-size: 40px 40px, 40px 40px, auto;
+
+    padding: 340px 0;
+
+    text-align: center;
+}
+
+.hero-heading {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 12px;
+
+    font-size: 80px;
+    font-family: 'Quantico', sans-serif;
+    
+    text-align: center;
+    letter-spacing: -5px;
+}
+
+.hero-marker-text {
+    font-size: 96px;
+    font-family: 'Covered By Your Grace', serif;
+    color: cyan;
+    letter-spacing: -2px;
+}
+
+.hero-subheading {
+    font-size: 24px;
+    margin-bottom: 32px;
+    line-height: 1.2;
+}

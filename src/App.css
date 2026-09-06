@@ -144,7 +144,7 @@ body {
     bottom: 5%;
     left: 50%;
     transform: translateX(-50%) rotate(30deg);
-    background-image: radial-gradient(256px 256px, rgba(0, 0, 0, 0.2) 25%, transparent 100%);
+    background-image: radial-gradient(256px 256px, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
     pointer-events: none;
     z-index: -1;
 }

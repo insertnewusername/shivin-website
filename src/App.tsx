@@ -9,20 +9,7 @@ function App() {
   return (
     <>
       <Nav />
-      <Switch>
-        <Route path="/">
-          <Home />
-        </Route>
-        <Route path="/register">
-          <Registration />
-        </Route>
-        <Route path="/confirmation">
-          <Confirmation />
-        </Route>
-        <Route>
-          <p>Error 404</p>
-        </Route>
-      </Switch>
+      <Home />
     </>
   )
 }

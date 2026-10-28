@@ -1,150 +1,222 @@
-@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Covered+By+Your+Grace&display=swap');
 
-body {
-    color: white;
-    background-color: black;
-    font-family: 'Google Sans', sans-serif;
-    margin: 0;
+/* ---------- Tokens ---------- */
+:root {
+    --accent: orangered;
+    --accent-strong: rgb(255, 48, 0);
+    --accent-badge: rgb(255, 96, 0);
+    --accent-tint: rgb(255, 200, 167);
+    --accent-muted: #695546;
+
+    --grid-line: rgb(40, 20, 15);
+    --grid-bg-end: rgb(20, 10, 7);
+
+    --font-body: 'Google Sans', sans-serif;
+    --font-display: 'Quantico', sans-serif;
+    --font-marker: 'Covered By Your Grace', serif;
 }
 
+/* ---------- Base ---------- */
+body {
+    margin: 0;
+    color: white;
+    background-color: rgb(7, 2, 2);
+    font-family: var(--font-body);
+}
+
+/* ---------- Form controls ---------- */
 .text-input {
-    color: orangered;
-    background-color: rgb(255, 200, 167);
-    border-radius: 4px;
     padding: 4px 8px;
+    border: none;
+    border-radius: 4px;
+    color: var(--accent);
+    background-color: var(--accent-tint);
+    font: inherit;
 }
 
 .text-input:focus-visible {
-    outline: 1px solid orangered;
+    outline: 1px solid var(--accent);
 }
 
 .text-input::placeholder {
-    color: #695546;
+    color: var(--accent-muted);
 }
 
+/* ---------- Hero layout ---------- */
 .hero-container {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+}
+
+.main-hero-container {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-evenly;
-    gap: 0px;
 }
 
+/* Grid background, fading out toward the bottom */
 .hero-container::before {
     content: "";
     position: absolute;
     inset: 0;
+    z-index: -1;
     pointer-events: none;
 
     background-image:
-        linear-gradient(to right, rgb(40, 20, 15) 1px, transparent 1px),
-        linear-gradient(to bottom, rgb(40, 20, 15) 1px, transparent 1px),
-        linear-gradient(to bottom, rgb(0, 0, 0) 0%, rgb(20, 10, 7) 100%);
-    background-repeat: repeat, repeat, no-repeat;
+        linear-gradient(to right, var(--grid-line) 1.5px, transparent 1px),
+        linear-gradient(to bottom, var(--grid-line) 1.5px, transparent 1px),
+        linear-gradient(to bottom, black 0%, var(--grid-bg-end) 100%);
     background-size: 40px 40px, 40px 40px, cover;
+    background-repeat: repeat, repeat, no-repeat;
 
-    mask-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.5) 50%, black 100%);
-
-    z-index: -1;
+    mask-image: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.75) 0%,
+        rgba(255, 255, 255, 0.5) 50%,
+        black 100%
+    );
+    border-bottom: 1px solid var(--grid-line);
 }
 
 .hero-text-container {
-    display: flex;
-    flex-flow: column nowrap;
-    place-items: center;
-    gap: 12px;
-
-    padding: 300px 0;
-
-    text-align: center;
-
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 320px 0;
+    text-align: center;
 }
 
+/* ---------- Hero text ---------- */
 .hero-badge {
-    color: white;
-    background-color: rgb(255, 96, 0);
-    border-radius: 4px;
-
-    font-weight: 900;
-    
     padding: 8px;
+    border-radius: 4px;
+    color: white;
+    background-color: var(--accent-badge);
+    font-weight: 700;
 }
 
 .hero-heading {
     display: flex;
-    flex-flow: column nowrap;
+    flex-direction: column;
     gap: 12px;
-
+    font-family: var(--font-display);
     font-size: 80px;
-    font-family: 'Quantico', sans-serif;
-    
+    letter-spacing: -0.0625em; /* was -5px */
     text-align: center;
-    letter-spacing: -5px;
 }
 
 .hero-marker-text {
+    color: var(--accent);
+    font-family: var(--font-marker);
     font-size: 96px;
-    font-family: 'Covered By Your Grace', serif;
-    color: orangered;
-    letter-spacing: -2px;
+    letter-spacing: -0.02em; /* was -2px */
 }
 
 .hero-subheading {
-    font-size: 24px;
     margin-bottom: 32px;
+    font-size: 24px;
     line-height: 1.2;
 }
 
+/* ---------- Hero form ---------- */
 .hero-form-container {
     display: flex;
-    flex-flow: row nowrap;
-    background-color: white;
-
-    border-radius: 8px;
-    padding: 8px;
     gap: 8px;
+    padding: 8px;
+    border-radius: 8px;
+    background-color: white;
 }
 
 .hero-button {
-    color: white;
-    background-color: rgb(255, 48, 0);
-
+    padding: 12px 24px;
     border: none;
     border-radius: 4px;
-
-    padding: 12px 24px;
+    color: white;
+    background-color: var(--accent-strong);
+    font-family: var(--font-body);
+    font-weight: 700;
     text-transform: uppercase;
-
-    transition: color 0.2s ease;
-    transition: background-color 0.2s ease;
-
-    font-family: 'Google Sans', sans-serif;
-    font-weight: 900;
+    cursor: pointer;
+    transition: filter 0.2s ease;
 }
 
 .hero-button:hover {
-    filter: brightness(0.9)
+    filter: brightness(0.9);
 }
 
 .hero-button:active {
-    filter: brightness(0.8)
+    filter: brightness(0.8);
 }
 
+/* ---------- Rocket ---------- */
 .hero-rocket-container {
     position: relative;
+    isolation: isolate;
 }
 
+/* Soft shadow/glow behind the rocket */
 .hero-rocket-container::before {
     content: "";
     position: absolute;
-    width: 512px;
-    height: 512px;
     bottom: 5%;
     left: 50%;
-    transform: translateX(-50%) rotate(30deg);
-    background-image: radial-gradient(256px 256px, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
-    pointer-events: none;
     z-index: -1;
+    width: 512px;
+    height: 512px;
+    transform: translateX(-50%);
+    background-image: radial-gradient(circle closest-side, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
+    pointer-events: none;
+}
+
+.sponsor-container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    padding: 90px 0;
+}
+
+.info-container {
+    display: flex;
+    flex-flow: row nowrap;
+    align-content: center;
+    justify-content: start;
+    align-items: center;
+    height: 480px;
+    padding: 48px;
+}
+
+.info-heading {
+    display: flex;
+    flex-direction: column;
+
+    color: orangered;
+    margin: 0 96px 0 0;
+    width: 400px;
+
+    font-family: var(--font-display);
+    font-size: 60px;
+    letter-spacing: -0.0625em; /* was -5px */
+    text-align: center;
+}
+
+.info-paragraph {
+    font-size: 24px;
+    width: 800px;
+}
+
+.top-container {
+    background-color: rgb(50, 10, 5);
+}
+
+.middle-container {
+    background-color: rgb(40, 5, 0);
+}
+
+.bottom-container {
+    background-color: rgb(30, 0, 0);
 }
